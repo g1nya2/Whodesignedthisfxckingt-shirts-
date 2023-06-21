@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+
 const { kakao } = window;
 const { CosmosClient } = require("@azure/cosmos");
 
@@ -32,20 +33,6 @@ const MapTest = () => {
         } else {
             console.error('Geolocation is not supported by this browser.');
         }
-
-        // 임시 데이터 추가
-        const tempData = {
-            id: '1',
-            name: '임시 데이터',
-            address: '임시 주소',
-            // 추가 필드들...
-        };
-
-        container.items.create(tempData).then(response => {
-            console.log('임시 데이터가 추가되었습니다.', response.resource);
-        }).catch(error => {
-            console.error('임시 데이터 추가에 실패했습니다.', error);
-        });
     }, []);
 
     return (
