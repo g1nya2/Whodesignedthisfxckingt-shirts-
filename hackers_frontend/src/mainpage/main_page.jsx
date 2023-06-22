@@ -13,6 +13,10 @@ const MainPage = () => {
     navigate('/Hospital');
   };
 
+  const handleExternalLink = () => {
+    window.open('https://github.com/hackersground-kr/Whodesignedthisfxckingt-shirts-');
+  };
+
 
   return (
     <div className="e4_8">
@@ -27,7 +31,7 @@ const MainPage = () => {
       <div className="e9_17">
         <div className="e8_26"></div>
         <span className="e8_28">@2023 HTA system</span>
-        <div className="e8_29"></div>
+        <button onClick={handleExternalLink} className="e8_29"></button>
       </div>
       <div className="e9_20">
         <span className="e9_19">Hospital to ambulance</span>
