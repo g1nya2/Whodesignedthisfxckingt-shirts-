@@ -1,6 +1,10 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
 import './main.css';
 import axios from 'axios';
+
+
+
 const Hospital = () => {
   const [count29, setCount29] = useState(0);
   const [count30, setCount30] = useState(0);
@@ -13,6 +17,23 @@ const Hospital = () => {
     major: '',
   });
   const [showAlert, setShowAlert] = useState(false);
+
+  const FloatingAlert = ({ patientInfo, onAccept, onReject }) => (
+    <div className="floatingAlert">
+      <h4 className="alertcss">{patientInfo.name} - {patientInfo.symptom}</h4>
+      <ul>
+        <li className="alertcss">성별: {patientInfo.gender}</li>
+        <li className="alertcss">나이: {patientInfo.age}</li>
+        <li className="alertcss">중증: {patientInfo.riskLevel}</li>
+        <li className="alertcss">학과: {patientInfo.major}</li>
+        <li className="alertcss">증상: {patientInfo.symptom}</li>
+      </ul>
+      <button onClick={onAccept} className="alertcss">수락</button>
+      <button onClick={onReject} className="alertcss">거절</button>
+    </div>
+  );
+  
+
   const handleButtonAction = (className) => {
     if (className === "v10_18") {
       setCount30(count30 + 1);
@@ -29,25 +50,44 @@ const Hospital = () => {
     }
   };
 
+  const [initialRender, setInitialRender] = useState(false);
 
-useEffect(() => {
-  // Azure Function으로부터 환자 정보를 받아옴
-  axios.get('https://signaltransfer.azurewebsites.net/api/sendpatientinfo?')
-    .then(response => {
-      const data = response.data;
-      if (data) {
-        // 받아온 환자 정보를 상태로 설정
-        setPatientInfo(data);
-        // 알림을 표시
-        setShowAlert(true);
-      }
-    })
-    .catch(error => {
-      console.error(error);
-    });
-}, []);
+  const [patientInfoList, setPatientInfoList] = useState([]);
+  useEffect(() => {
+    if (initialRender) {
+      const fetchData = async () => {
+        try {
+          const response = await axios.get(
+            'https://signaltransfer.azurewebsites.net/api/sendpatientinfo?code=R9V8S0-sZCHp52nwEIVBVpgfgvmHXXBdWoLFfiibAgFqAzFu3c6hSg=='
+          );
+          const data = response.data;
+          if (data && data.name && data.symptom) {
+            setPatientInfoList((oldList) => [...oldList, data]);
+          }
+        } catch (error) {
+          console.error(error);
+        }
+      };
 
+      fetchData();
+    }
+  }, [initialRender]);
 
+  useEffect(() => {
+    setInitialRender(true);
+  }, []);
+
+  const handleAccept = (index) => {
+    // 수락 버튼을 눌렀을 때 처리할 기능 작성
+    const newList = patientInfoList.filter((_, idx) => idx !== index);
+    setPatientInfoList(newList);
+  };
+  
+  const handleReject = (index) => {
+    // 거절 버튼을 눌렀을 때 처리할 기능 작성
+    const newList = patientInfoList.filter((_, idx) => idx !== index);
+    setPatientInfoList(newList);
+  };
 
   return (
     <div className="v8_31">
@@ -70,18 +110,16 @@ useEffect(() => {
       <div className="name"></div>
       <div className="name"></div>
       <div className="name"></div>
-      {showAlert && (
-        <div className="alert">
-          <h3>알림</h3>
-          <p>새로운 환자 정보가 도착했습니다.</p>
-          <p>이름: {patientInfo.name}</p>
-          <p>증상: {patientInfo.symptom}</p>
-          <p>나이: {patientInfo.age}</p>
-          <p>위험도: {patientInfo.riskLevel}</p>
-          <p>성별: {patientInfo.gender}</p>
-          <p>주요 증상: {patientInfo.major}</p>
-        </div>
-      )}
+      <div>
+      {patientInfoList.map((patientInfo, index) => (
+        <FloatingAlert 
+          key={index}
+          patientInfo={patientInfo}
+          onAccept={() => handleAccept(index)}
+          onReject={() => handleReject(index)}
+        />
+      ))}
+      </div>
     </div>
   );
 };

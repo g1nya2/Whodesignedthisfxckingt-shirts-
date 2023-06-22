@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
 
 const { kakao } = window;
@@ -6,11 +7,8 @@ const { CosmosClient } = require("@azure/cosmos");
 const endpoint = "https://hospitalbeds.documents.azure.com:443/";
 const key = "vkXg1ahgs15J5Gl8whRb3vlgzlHHP560YA6RuBX5RkPX81kCYUwg0ZoFNucvgah9xYxwpEDEqv6vACDbi30Ovw==";
 
-const client = new CosmosClient({ endpoint, key });
-const container = client.database("hospitalbeds").container("BedS");
-
 const MapTest = () => {
-    const [map, setMap] = useState(null);
+    const [map , setMap] = useState(null);
 
     useEffect(() => {
         const container = document.getElementById('map');

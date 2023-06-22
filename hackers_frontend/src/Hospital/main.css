@@ -189,7 +189,25 @@ body {
 .name {
   color: #fff;
 }
+
+.alertcss {
+  width: 200px;
+  color: rgba(0,0,0,1);
+  font-family: AppleSDGothic;
+  font-weight: Regular;
+  font-size: 20px;
+  opacity: 1;
+  text-align: left;
+}
+
+
 @font-face{
   font-family: 'Black Han Sans';
   src: url('./BlackHanSans-Regular.ttf')format('truetype');
+}
+
+@font-face
+{
+  font-family: 'AppleSDGothic';
+  src : url('./AppleSDGothicNeoUL.ttf')format('truetype');
 }
