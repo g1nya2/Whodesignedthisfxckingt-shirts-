@@ -29,11 +29,11 @@ HTA
 
 ## 제품 아키텍처 (이미지)
 
-!(https://github.com/hackersground-kr/Whodesignedthisfxckingt-shirts-/assets/105257807/a0cebdaa-5bbf-4075-b79d-9734c44e57e2) 
+![](https://github.com/hackersground-kr/Whodesignedthisfxckingt-shirts-/assets/105257807/a0cebdaa-5bbf-4075-b79d-9734c44e57e2) 
 
 ## 제품 소개 슬라이드
 
-제품 또는 서비스를 소개하는 슬라이드 덱을 리포지토리에 추가해 주세요. 슬라이드 덱은 [decks](./decks) 디렉토리에 저장한 후 이곳에 링크를 걸어주세요.
+[슬라이드 보러가기](./decks)
 
 ## 제품 소개 동영상
 
