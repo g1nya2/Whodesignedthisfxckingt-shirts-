@@ -37,4 +37,4 @@ HTA
 
 ## 제품 소개 동영상
 
-https://www.youtube.com/watch?v=2Ic0nc5QZxc)https://www.youtube.com/watch?v=2Ic0nc5QZxc
+https://youtu.be/8wWligPRxuo
