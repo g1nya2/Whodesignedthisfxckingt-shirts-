@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './styles.css';
+
 import axios from 'axios';
 import MapTest from '../kakaomap/map';
 
@@ -12,6 +13,7 @@ const Ambulance = () => {
     gender: '',
     major: '',
   }); 
+  const [isLoading, setIsLoading] = useState(false);
 
 
   const handleChange = (e) => {
@@ -20,16 +22,26 @@ const Ambulance = () => {
   };
   const handleSubmit = () => {
     // 환자 정보를 Azure Function으로 전송
-    axios.post('https://signaltransfer.azurewebsites.net/api/sendpatientinfo?', patientInfo)
-      .then(response => {
+    if (!isLoading) {
+      setIsLoading(true);
+
+      try {
+        // 환자 정보를 Azure Function으로 전송
+        axios.post(
+          'https://signaltransfer.azurewebsites.net/api/sendpatientinfo?code=R9V8S0-sZCHp52nwEIVBVpgfgvmHXXBdWoLFfiibAgFqAzFu3c6hSg==',
+          patientInfo
+        );
+
         // 응답 처리 로직
-        console.log(response.data); // 예시: 응답 데이터 출력
+       // 예시: 응답 데이터 출력
         // 페이지 이동
-      })
-      .catch(error => {
+      } catch (error) {
         // 오류 처리 로직
         console.error(error);
-      });
+      }
+
+      setIsLoading(false);
+    }
   };
 
   return (
