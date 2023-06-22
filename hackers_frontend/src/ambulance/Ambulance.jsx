@@ -14,7 +14,6 @@ const Ambulance = () => {
     major: '',
   }); 
 
-  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
