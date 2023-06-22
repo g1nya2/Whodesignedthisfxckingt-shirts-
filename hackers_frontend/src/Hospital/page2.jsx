@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import './main.css';
 import axios from 'axios';
-
+import MapTest from '../kakaomap/map copy';
 
 
 const Hospital = () => {
@@ -90,12 +90,14 @@ const Hospital = () => {
   };
 
   return (
+    
     <div className="v8_31">
       <div className="v9_18">
         <div className="v8_32"></div>
         <span className="v9_2">HTA</span>
         <div className="v9_5"></div>
       </div>
+      <MapTest/>
       <span className="v10_22">병상 상태 업데이트</span>
       <button className="v10_18" onClick={() => handleButtonAction("v10_18")}></button>
       <button className="v10_19" onClick={() => handleButtonAction("v10_19")}></button>
