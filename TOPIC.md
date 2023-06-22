@@ -18,7 +18,7 @@ HTA
 
 ## 제품 아키텍처 (이미지)
 
-[Click](./images/MainIamge) 
+![Click](./images/MainIamge.PNG) 
 
 ## 제품 소개 슬라이드
 
