@@ -29,7 +29,7 @@ HTA
 
 ## 제품 아키텍처 (이미지)
 
-/![1](https://github.com/hackersground-kr/Whodesignedthisfxckingt-shirts-/assets/105257807/a0cebdaa-5bbf-4075-b79d-9734c44e57e2) 
+![1](https://github.com/hackersground-kr/Whodesignedthisfxckingt-shirts-/assets/105257807/a0cebdaa-5bbf-4075-b79d-9734c44e57e2) 
 
 ## 제품 소개 슬라이드
 
