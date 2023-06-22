@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import './styles.css';
-
-import axios from 'axios';
+import './black.css';
 import MapTest from '../kakaomap/map';
+import { useNavigate } from 'react-router-dom';
 
 const Ambulance = () => {
   const [patientInfo, setPatientInfo] = useState({
@@ -13,36 +12,16 @@ const Ambulance = () => {
     gender: '',
     major: '',
   }); 
-  const [isLoading, setIsLoading] = useState(false);
-
-
+  const navigate = useNavigate();
+  
+  const gotonext = () => {
+    navigate('/next');
+  };
   const handleChange = (e) => {
     const { name, value } = e.target;
     setPatientInfo((prevInfo) => ({ ...prevInfo, [name]: value }));
   };
-  const handleSubmit = () => {
-    // 환자 정보를 Azure Function으로 전송
-    if (!isLoading) {
-      setIsLoading(true);
-
-      try {
-        // 환자 정보를 Azure Function으로 전송
-        axios.post(
-          'https://signaltransfer.azurewebsites.net/api/sendpatientinfo?code=R9V8S0-sZCHp52nwEIVBVpgfgvmHXXBdWoLFfiibAgFqAzFu3c6hSg==',
-          patientInfo
-        );
-
-        // 응답 처리 로직
-       // 예시: 응답 데이터 출력
-        // 페이지 이동
-      } catch (error) {
-        // 오류 처리 로직
-        console.error(error);
-      }
-
-      setIsLoading(false);
-    }
-  };
+ 
 
   return (
     
@@ -66,6 +45,7 @@ const Ambulance = () => {
           onChange={handleChange}
         />
       </div>
+
       <div className="e21_36">
         <div className="e22_8"></div>
         <input
@@ -77,6 +57,7 @@ const Ambulance = () => {
           onChange={handleChange}
         />
       </div>
+
       <div className="e21_38">
         <div className="e22_14"></div>
         <input
@@ -122,17 +103,62 @@ const Ambulance = () => {
         />
       </div>
       <span className="e21_39">병원리스트</span>
-      <div className="e21_45">
-        <div className="e21_40"></div>
-        <span className="e21_42">a병원</span>
-        <span className="e21_43">병상:n/n</span>
-        <span className="e21_44">남은거리:xkm</span>
-      </div>
-      <div className="e21_50">
-        <div className="e21_47"></div>
-        <button onClick={handleSubmit}><span className="e21_49">요청</span></button>
-      </div>
-    </div>
+
+
+
+
+      
+            
+      <div className="e44_128">
+              <div  className="e44_129"></div>
+              <span  className="e44_130">a병원</span>
+              <span  className="e44_131">병상: n/n</span>
+              <span  className="e44_132">남은거리: xkm</span>
+            </div>
+
+            <div className="e44_137">
+              <div  className="e44_138"></div>
+              <span  className="e44_139">a병원</span>
+              <span  className="e44_140">병상: n/n</span>
+            <span  className="e44_141">남은거리: xkm</span>
+          </div>
+
+            <div className="e44_146">
+              <div  className="e44_147"></div>
+              <span  className="e44_148">a병원</span>
+              <span  className="e44_149">병상: n/n</span>
+            <span  className="e44_150">남은거리: xkm</span>
+          </div>
+
+            <div className="e44_155">
+              <div  className="e44_156"></div>
+              <span  className="e44_157">a병원</span>
+              <span  className="e44_158">병상: n/n</span>
+            <span  className="e44_159">남은거리: xkm</span>
+          </div>
+          
+          <div className="e58_3">
+            <div  className="e58_4"></div>
+            <span  className="e58_5">a병원</span>
+            <span  className="e58_6">병상: n/n</span>
+            <span  className="e58_7">남은거리: xkm</span>
+          </div>
+
+          
+            
+
+          <div className="e58_12">
+              <div  className="e58_13"></div>
+              <span  className="e58_14">a병원</span>
+              <span  className="e58_15">병상: n/n</span>
+              <span  className="e58_16">남은거리: xkm</span>
+          </div>
+
+          <div className="e58_8">
+            <div  className="e58_9"></div>
+            <button onClick={gotonext}><span className="e58_10">요청</span></button>
+          </div>
+        </div>
   );
 };
 

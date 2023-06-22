@@ -7,12 +7,13 @@ const MainPage = () => {
   const navigate = useNavigate();
   
   const handleAmbulanceRequest = () => {
-    navigate('/AmbulanceRequest');
+    navigate('/Ambulance');
   };
 
-  const handleHospitalRequest = () => {
-    navigate('/Hospital');
+  const handleLoginRequest = () => {
+    navigate('/Login');
   };
+
 
   const handleExternalLink = () => {
     window.open('https://github.com/hackersground-kr/Whodesignedthisfxckingt-shirts-');
@@ -26,7 +27,7 @@ const MainPage = () => {
       </div>
       <div className="e9_15">
         <div className="e6_23"></div>
-        <button onClick={handleHospitalRequest}><span className="e4_15">병원</span></button>
+        <button onClick={handleLoginRequest}><span className="e4_15">병원</span></button>
       </div>
       <div className="e9_17">
         <div className="e8_26"></div>

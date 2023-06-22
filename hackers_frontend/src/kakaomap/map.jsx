@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
-
+import {Link} from 'react-router-dom';
 const { kakao } = window;
 const { CosmosClient } = require("@azure/cosmos");
 
@@ -21,6 +21,8 @@ const MapTest = () => {
                 position => {
                     const { latitude, longitude } = position.coords;
                     const currentPosition = new kakao.maps.LatLng(latitude, longitude);
+                    <Link to = {{pathname:'/next',state:{latitude,longitude}}}></Link>
+                    
                     kakaoMap.setCenter(currentPosition);
                     // 현재 위치에 마커 추가 등의 작업을 할 수 있습니다.
                 },
@@ -45,6 +47,9 @@ const MapTest = () => {
             }}
         >
             <div id="map" style={{ width: '100%', height: '100%' }}></div>
+            <div>
+                
+            </div>
         </div>
     );
 };
